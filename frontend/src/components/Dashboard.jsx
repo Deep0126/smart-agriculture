@@ -4,10 +4,18 @@ const Dashboard = () => {
   const [sensorData, setSensorData] = useState([]);
 
   useEffect(() => {
-    // Mock Data
-    setSensorData([
-      { moisture: 45, temperature: 28, timestamp: new Date().toISOString() }
-    ]);
+    // Fetch live IoT data from Render Backend
+    fetch('https://smart-agriculture-tdbe.onrender.com/api/iot/data/latest')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.length > 0) {
+          setSensorData(data);
+        } else {
+          // Fallback dummy data if Database is empty
+          setSensorData([{ moisture: 45, temperature: 28, timestamp: new Date().toISOString() }]);
+        }
+      })
+      .catch(err => console.log('Error fetching data:', err));
   }, []);
 
   return (
