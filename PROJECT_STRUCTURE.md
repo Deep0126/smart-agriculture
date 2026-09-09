@@ -1,5 +1,12 @@
 # 🌱 Smart Agriculture Platform
 
+## 🌐 Live Deployment Links
+*   **Frontend (Website):** Hosted on Vercel *(Aapka Vercel wala link)*
+*   **Backend (API):** [https://smart-agriculture-tdbe.onrender.com](https://smart-agriculture-tdbe.onrender.com)
+*   **Database:** MongoDB Atlas
+
+---
+
 ## 🚀 Tech Stack (Languages & Frameworks Used)
 Ye project ek modern microservices architecture par based hai, jisme 3 alag-alag technologies ka use kiya gaya hai:
 
