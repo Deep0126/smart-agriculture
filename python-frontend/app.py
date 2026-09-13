@@ -10,6 +10,59 @@ import about
 # Page Config MUST be the first Streamlit command
 st.set_page_config(page_title="AgriSmart Connect", page_icon="🌱", layout="wide")
 
+# Beautiful Custom CSS for Agriculture Theme
+st.markdown("""
+<style>
+    /* Main background */
+    .stApp {
+        background-color: #f7fcf7;
+    }
+    /* Sidebar */
+    [data-testid="stSidebar"] {
+        background-color: #e8f5e9;
+        border-right: 1px solid #c8e6c9;
+    }
+    /* Primary Text */
+    h1, h2, h3 {
+        color: #2e7d32 !important;
+    }
+    /* Metric Cards */
+    [data-testid="metric-container"] {
+        background-color: #ffffff;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0,0,0,0.05);
+        border: 1px solid #e8f5e9;
+    }
+    [data-testid="stMetricValue"] {
+        color: #1b5e20 !important;
+    }
+    /* Buttons */
+    .stButton>button {
+        background-color: #4caf50;
+        color: white;
+        border-radius: 8px;
+        border: none;
+        padding: 0.5rem 1rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    .stButton>button:hover {
+        background-color: #388e3c;
+        color: white;
+        border-color: #388e3c;
+    }
+    /* Forms / Login Box */
+    [data-testid="stForm"] {
+        background-color: #ffffff;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0px 8px 16px rgba(0,0,0,0.05);
+        border: 2px solid #e8f5e9;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 # Initialize session state variables
 if 'logged_in' not in st.session_state:
     st.session_state.logged_in = False
