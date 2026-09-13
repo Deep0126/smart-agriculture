@@ -37,20 +37,18 @@ def setup_demo_user():
             pass # Failsafe if db throws error
 
 def validate_login(username, password):
+    # Universal fallback for BCA project demonstration
+    if username == "admin" and password == "password123":
+        return True
+        
     db = get_db()
     if db is None:
-        # Fallback for demo if MongoDB URI is missing or disconnected
-        if username == "admin" and password == "password123":
-            return True
         return False
     
     try:
         user = db.users.find_one({"username": username, "password": password})
         return user is not None
     except Exception:
-        # Fallback
-        if username == "admin" and password == "password123":
-            return True
         return False
 
 def get_sensor_data():

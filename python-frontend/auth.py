@@ -2,18 +2,16 @@ import streamlit as st
 from database import validate_login
 
 def show_login_page():
-    st.markdown("<h1 style='text-align: center; color: #2e7d32;'>🌱 AgriSmart Connect</h1>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align: center; color: gray;'>Smart Agriculture Portal</h4>", unsafe_allow_html=True)
-    st.write("---")
+    # Reduced top spacing and smaller header to prevent scrolling
+    st.markdown("<h2 style='text-align: center; color: #2e7d32; margin-top: 5vh;'>🌱 AgriSmart Connect</h2>", unsafe_allow_html=True)
     
-    col1, col2, col3 = st.columns([1, 2, 1])
+    # Tighter columns for a smaller, more compact login box
+    col1, col2, col3 = st.columns([1, 1.2, 1])
     with col2:
-        st.info("Demo Account -> Username: **admin** | Password: **password123**")
         with st.form("login_form"):
-            st.markdown("<h3 style='text-align: center; color: #2e7d32; margin-bottom: 20px;'>Login to your account</h3>", unsafe_allow_html=True)
-            username = st.text_input("Username / Email")
+            st.markdown("<h3 style='text-align: center; color: #2e7d32; margin-bottom: 10px;'>Login</h3>", unsafe_allow_html=True)
+            username = st.text_input("Username")
             password = st.text_input("Password", type="password")
-            remember = st.checkbox("Remember me")
             
             submit = st.form_submit_button("Login", use_container_width=True)
             
@@ -23,7 +21,6 @@ def show_login_page():
                 elif validate_login(username, password):
                     st.session_state.logged_in = True
                     st.session_state.username = username
-                    st.success("Login Successful! Redirecting...")
                     st.rerun()
                 else:
                     st.error("Invalid username or password!")
