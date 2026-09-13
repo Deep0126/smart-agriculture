@@ -10,7 +10,7 @@ def show_login_page():
     with col2:
         st.info("Demo Account -> Username: **admin** | Password: **password123**")
         with st.form("login_form"):
-            st.subheader("Login to your account")
+            st.markdown("<h3 style='text-align: center; color: #2e7d32; margin-bottom: 20px;'>Login to your account</h3>", unsafe_allow_html=True)
             username = st.text_input("Username / Email")
             password = st.text_input("Password", type="password")
             remember = st.checkbox("Remember me")

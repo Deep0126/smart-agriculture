@@ -13,19 +13,51 @@ st.set_page_config(page_title="AgriSmart Connect", page_icon="🌱", layout="wid
 # Beautiful Custom CSS for Agriculture Theme
 st.markdown("""
 <style>
+    /* Hide all header anchor links (the hover link icon) */
+    h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+        display: none !important;
+    }
+    .stMarkdown a.header-anchor {
+        display: none !important;
+    }
+    
     /* Main background */
     .stApp {
         background-color: #f7fcf7;
     }
+    
     /* Sidebar */
     [data-testid="stSidebar"] {
         background-color: #e8f5e9;
         border-right: 1px solid #c8e6c9;
     }
-    /* Primary Text */
+    
+    /* Global Text Colors (Forces light mode text on custom light backgrounds) */
     h1, h2, h3 {
         color: #2e7d32 !important;
     }
+    p, label, .stCheckbox p {
+        color: #333333 !important;
+    }
+    
+    /* Input Fields (Fix for dark mode clash) */
+    .stTextInput input, .stNumberInput input {
+        background-color: #ffffff !important;
+        color: #333333 !important;
+        border: 1px solid #c8e6c9 !important;
+        border-radius: 6px !important;
+    }
+    
+    /* Info/Alert Box (Demo Account msg) */
+    [data-testid="stAlert"] {
+        background-color: #e8f5e9 !important;
+        color: #1b5e20 !important;
+        border: 1px solid #c8e6c9 !important;
+    }
+    [data-testid="stAlert"] p {
+        color: #1b5e20 !important;
+    }
+    
     /* Metric Cards */
     [data-testid="metric-container"] {
         background-color: #ffffff;
@@ -37,10 +69,14 @@ st.markdown("""
     [data-testid="stMetricValue"] {
         color: #1b5e20 !important;
     }
+    [data-testid="stMetricLabel"] p {
+        color: #555555 !important;
+    }
+    
     /* Buttons */
     .stButton>button {
         background-color: #4caf50;
-        color: white;
+        color: white !important;
         border-radius: 8px;
         border: none;
         padding: 0.5rem 1rem;
@@ -49,9 +85,10 @@ st.markdown("""
     }
     .stButton>button:hover {
         background-color: #388e3c;
-        color: white;
+        color: white !important;
         border-color: #388e3c;
     }
+    
     /* Forms / Login Box */
     [data-testid="stForm"] {
         background-color: #ffffff;
