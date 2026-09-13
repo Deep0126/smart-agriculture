@@ -10,7 +10,7 @@ import about
 # Page Config MUST be the first Streamlit command
 st.set_page_config(page_title="AgriSmart Connect", page_icon="🌱", layout="wide")
 
-# Beautiful Custom CSS for Agriculture Theme
+# Beautiful Custom CSS (Theme-friendly)
 st.markdown("""
 <style>
     /* Hide all header anchor links (the hover link icon) */
@@ -21,81 +21,20 @@ st.markdown("""
         display: none !important;
     }
     
-    /* Main background */
-    .stApp {
-        background-color: #f7fcf7;
-    }
-    
-    /* Sidebar */
-    [data-testid="stSidebar"] {
-        background-color: #e8f5e9;
-        border-right: 1px solid #c8e6c9;
-    }
-    
-    /* Global Text Colors (Forces light mode text on custom light backgrounds) */
-    h1, h2, h3 {
-        color: #2e7d32 !important;
-    }
-    p, label, .stCheckbox p {
-        color: #333333 !important;
-    }
-    
-    /* Input Fields (Fix for dark mode clash) */
-    .stTextInput input, .stNumberInput input {
-        background-color: #ffffff !important;
-        color: #333333 !important;
-        border: 1px solid #c8e6c9 !important;
-        border-radius: 6px !important;
-    }
-    
-    /* Info/Alert Box (Demo Account msg) */
-    [data-testid="stAlert"] {
-        background-color: #e8f5e9 !important;
-        color: #1b5e20 !important;
-        border: 1px solid #c8e6c9 !important;
-    }
-    [data-testid="stAlert"] p {
-        color: #1b5e20 !important;
-    }
-    
-    /* Metric Cards */
+    /* Metric Cards styling */
     [data-testid="metric-container"] {
-        background-color: #ffffff;
         padding: 15px;
         border-radius: 10px;
-        box-shadow: 0px 4px 6px rgba(0,0,0,0.05);
-        border: 1px solid #e8f5e9;
-    }
-    [data-testid="stMetricValue"] {
-        color: #1b5e20 !important;
-    }
-    [data-testid="stMetricLabel"] p {
-        color: #555555 !important;
-    }
-    
-    /* Buttons */
-    .stButton>button {
-        background-color: #4caf50;
-        color: white !important;
-        border-radius: 8px;
-        border: none;
-        padding: 0.5rem 1rem;
-        font-weight: 600;
-        transition: all 0.3s ease;
-    }
-    .stButton>button:hover {
-        background-color: #388e3c;
-        color: white !important;
-        border-color: #388e3c;
+        box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+        border: 1px solid rgba(76, 175, 80, 0.2);
     }
     
     /* Forms / Login Box */
     [data-testid="stForm"] {
-        background-color: #ffffff;
         border-radius: 15px;
         padding: 25px;
-        box-shadow: 0px 8px 16px rgba(0,0,0,0.05);
-        border: 2px solid #e8f5e9;
+        box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+        border: 2px solid rgba(76, 175, 80, 0.3);
     }
 </style>
 """, unsafe_allow_html=True)
