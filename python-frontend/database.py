@@ -4,8 +4,8 @@ import streamlit as st
 from datetime import datetime
 import random
 
-# Use environment variable for MongoDB (from Render or .env)
-MONGO_URI = os.getenv("MONGO_URI", "")
+# Use environment variable for MongoDB, with fallback to the direct string for local zip execution
+MONGO_URI = os.getenv("MONGO_URI", "mongodb+srv://deeppatel7422_db_user:ljdklsjKlkjlkd278238@cluster0.uysm1vp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 
 @st.cache_resource
 def init_connection():
