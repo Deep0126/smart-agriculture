@@ -51,6 +51,27 @@ def validate_login(username, password):
     except Exception:
         return False
 
+def register_user(username, password):
+    db = get_db()
+    if db is None:
+        return False, "Database disconnected. Cannot register right now."
+    
+    try:
+        # Check if user already exists
+        existing_user = db.users.find_one({"username": username})
+        if existing_user:
+            return False, "Username already exists! Please Login."
+        
+        # Insert new user
+        db.users.insert_one({
+            "username": username, 
+            "password": password, 
+            "role": "farmer"
+        })
+        return True, "Registration successful! You can now login."
+    except Exception as e:
+        return False, f"Error creating user: {str(e)}"
+
 def get_sensor_data():
     # In a real IoT setup, we would fetch db.sensor_data.find_one(sort=[('_id', -1)])
     # For robust demonstration, we provide smart simulated data.
